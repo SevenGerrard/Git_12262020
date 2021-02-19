@@ -17,7 +17,7 @@ import org.testng.log4testng.Logger;
 
 public class P3Library extends P3Base {
 	final Logger logger = Logger.getLogger(P3Library.class);
-	private WebDriver driver;
+	private WebDriver D;
 	private boolean isDemoMode = false;
 
 
@@ -28,9 +28,9 @@ public class P3Library extends P3Base {
 	enum Browser{
 		CHROME, FIREFOX, EDGE
 	}
-	
+
 	public P3Library() {
-		
+
 	}
 
 	public WebDriver getDriver() {
@@ -46,31 +46,31 @@ public class P3Library extends P3Base {
 			logger.error("Error: ", e);
 		}
 	}
-	
+
 	public WebDriver startBrowser(Browser browser) {
 		try {
 			switch(browser) {
 			case CHROME:
 				driver = startChromeBrowser();
 				break;
-				
+
 			case FIREFOX:
 				driver = startFirefoxBrowser();
 				break;
-				
+
 			case EDGE:
 				driver = startEdgeBrowser();
 				break;
-			
+
 			}
-			
+
 		}catch (Exception e) {
 			logger.error("Error: ", e);
 		}
 		return driver;
-		
+
 	}
-	
+
 
 	public WebDriver startChromeBrowser() {
 		String path = "/Users/pahriya/Desktop/EclipseWorkPlace/com.group.projectiii/src/test/resources/drivers/chromedriver";
@@ -91,7 +91,7 @@ public class P3Library extends P3Base {
 		}
 		return driver;
 	}
-	
+
 	public WebDriver startFirefoxBrowser() {
 		String path = "/Users/pahriya/Desktop/EclipseWorkPlace/com.group.projectiii/src/test/resources/drivers/gekodriver";
 
@@ -111,7 +111,7 @@ public class P3Library extends P3Base {
 		}
 		return driver;
 	}
-	
+
 	public WebDriver startEdgeBrowser() {
 		String path = "/Users/pahriya/Desktop/EclipseWorkPlace/com.group.projectiii/src/test/resources/drivers/msedgedriver";
 
@@ -131,7 +131,7 @@ public class P3Library extends P3Base {
 		}
 		return driver;
 	}
-	
+
 
 	public void scrolldown(int pix) {
 		try {
@@ -141,7 +141,7 @@ public class P3Library extends P3Base {
 			logger.error("Error: ", e);
 		}
 	}
-	
+
 	public void customWait(double inSeconds) {
 		try {
 			Thread.sleep((long) (inSeconds * 1000));
@@ -161,7 +161,7 @@ public class P3Library extends P3Base {
 		}
 		return dynamicElem;
 	}
-	
+
 	public WebElement waitUntilElementPresence(By by) {
 		WebElement dynamicElemPresence = null;
 		try {
@@ -172,7 +172,7 @@ public class P3Library extends P3Base {
 		}
 		return dynamicElemPresence;
 	}
-	
+
 	public WebElement waitUntilElementClickable(By by) {
 		WebElement dynamicElemClickable = null;
 		try {
@@ -183,9 +183,9 @@ public class P3Library extends P3Base {
 		}
 		return dynamicElemClickable;
 	}
-	
+
 	public void highLightElem(WebElement elem) {
-		
+
 		try {
 			JavascriptExecutor js = (JavascriptExecutor) driver;
 			js.executeScript("arguments[0].setAttribute('style', arguments[1]);", elem,
@@ -195,7 +195,7 @@ public class P3Library extends P3Base {
 			logger.error("Error: ", e);
 		}
 	}
-	
+
 	public void hoveroverElem(By by) {
 		try {
 			Actions action = new Actions(driver);
@@ -205,7 +205,7 @@ public class P3Library extends P3Base {
 			logger.error("Error: ", e);
 		}
 	}
-	
+
 	public void ClickElement(By by) {
 		try {
 			WebElement elem = driver.findElement(by);
@@ -215,7 +215,7 @@ public class P3Library extends P3Base {
 			logger.error("Error: ", e);
 		}
 	}
-	
+
 	public void EnterTxt(By by, String str) {
 		try {
 			WebElement elem = driver.findElement(by);
@@ -226,7 +226,7 @@ public class P3Library extends P3Base {
 			logger.error("Error: ", e);
 		}
 	}
-	
+
 	public void dragAndDropBtn(By by, int Pixel) {
 		try {
 			WebElement btn = driver.findElement(by);
@@ -238,7 +238,7 @@ public class P3Library extends P3Base {
 			logger.error("Error: ", e);
 		}
 	}
-	
+
 	public void selectDropDown(By by, String optionValue) {
 		try {
 			WebElement elem = driver.findElement(by);
@@ -247,7 +247,7 @@ public class P3Library extends P3Base {
 		}catch(Exception e) {
 			logger.error("Error: ", e);
 		}
-		
+
 	}
-	
+
 }
