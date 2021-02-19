@@ -17,7 +17,7 @@ import org.testng.log4testng.Logger;
 
 public class P3Library extends P3Base {
 	final Logger logger = Logger.getLogger(P3Library.class);
-	private WebDriver D;
+	private WebDriver driver;
 	private boolean isDemoMode = false;
 
 
